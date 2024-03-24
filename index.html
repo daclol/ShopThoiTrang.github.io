@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web bán hàng </title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./img/logo.png" alt="">
+        </div>
+        <div class="menu">
+            <li> <a href="./nu.html">Nữ</a></li>
+            <li> <a href="./nam.html">Nam</a></li>
+            <li> <a href="em.html">Trẻ em</a></li>
+            <li> <a href="./giaydep.html">Giầy dép</a></li>
+            <li><a href="./phukien.html">Phụ kiện </a></li>
+            <li><a href="./sale.html">Sale</a></li>
+        </div>
+        <div class="others">
+            <li><input placeholder="tìm kiếm" type="text"><i class="fas fa search"></i></li>
+            <li><a  class="fas fa user" href=""><img src="./img/user.webp" alt="">
+                <ul class="sub-menu">
+                    <li><a href="./dangky.html">Đăng ký</a></li>
+                    <li><a href="./dangnhap.html">Đăng nhập</a></li>
+                </ul>
+            </a></li>
+            <li><a  class="fas fa shopping bag " href="./thanhtoan.html"><img src="./img/giohang.webp" alt=""></a></li>
+        </div>
+    </header>
+    <section id="slider">
+    <div class="aspect-ratio-169">
+        <img src="./img/back.jpg" alt="">
+        <img src="./img/nen.png" alt="">
+        <img src="./img/anh3.jpg" alt="">
+        <img src="./img/anh4.jpg" alt="">
+        <img src="./img/anh5.jpg    " alt="">
+    </div>
+    <div class="dot-container">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+    </section>
+    <section class="app-container">
+        <p>Tải ứng dụng</p>
+        <div class="app">
+            <img src="./img/googleplay.png" alt="">
+            <img src="./img/appstore.png" alt="">
+        </div>
+        <p>Nhận thông báo </p>
+        <input type="text" placeholder="nhập email ">
+    </section>
+    <div class="footer-top">
+        <li><a href="">Liên hệ</a></li>
+        <li><a href="">Giới thiệu </a></li>
+    </div>
+    <div class="footer-center">
+    <p>
+    Địa chỉ đăng ký: 139B  Quận Hai Bà Trưng TP Hà Nội, Việt Nam - 0245 025 999 <br>
+    Đặt hàng online:<b> 0125 025 568 </b> .
+    </p>
+    </div>
+    <div class="footer-bottom">
+        @DettroyFashion
+    </div>
+</body>
+<script>
+const imPosition=document.querySelectorAll(".aspect-ratio-169 img")
+const imgContainer=document.querySelector('.aspect-ratio-169')
+const dotItem=document.querySelectorAll(".dot")
+let imgNuber=imPosition.length
+let index=0
+//console.log(imPosition)
+imPosition.forEach(function(image,index){
+    image.style.left= index*100 + "%"
+    dotItem[index].addEventListener("click",function(){
+        slider(index)
+    })
+})
+function imgslider(){
+    index++;
+    console.log(index)
+    if (index>=imgNuber) {index=0}
+    slider(index)
+    
+}
+function slider (index){
+    imgContainer.style.left="-"+index*100+"%"
+    const dotactive=document.querySelector('.active')
+    dotactive.classList .remove("active") 
+    dotItem[index].classList.add("active")
+
+}
+setInterval(imgslider,5000)
+</script>
+</html>
